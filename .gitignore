@@ -1,0 +1,6 @@
+target
+Cargo.lock
+.idea/
+*.bmp
+rusty-tags.vi
+tags

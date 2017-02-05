@@ -1,0 +1,8 @@
+[package]
+name = "ray"
+version = "0.1.0"
+authors = ["mandava <mandava@uber.com>"]
+
+[dependencies]
+bmp = "*"
+rand = "0.3"
