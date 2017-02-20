@@ -4,3 +4,4 @@ Cargo.lock
 *.bmp
 rusty-tags.vi
 tags
+*.swp

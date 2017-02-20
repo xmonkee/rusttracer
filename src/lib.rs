@@ -1,8 +1,11 @@
+extern crate rand;
 pub mod vec3;
 pub mod scenes;
+pub mod materials;
 
 use vec3::Vec3;
 use vec3::Ray;
+use rand::{ThreadRng};
 
 #[cfg(test)]
 mod tests {
@@ -31,12 +34,28 @@ mod tests {
     }
 }
 
-pub struct HitRecord {
+pub struct HitRecord<'a> {
     pub t: f32,
     pub p: Vec3,
     pub normal: Vec3,
+    pub material: &'a Material,
+}
+
+impl <'a> HitRecord <'a> {
+    fn new(t: f32, p: Vec3, normal: Vec3, material: &'a Material) -> HitRecord<'a> {
+        HitRecord {
+            t: t,
+            p: p,
+            normal: normal,
+            material: material,
+        }
+    }
 }
 
 pub trait Hitable {
     fn hit(&self, tmin: f32, tmax: f32, r: &Ray) -> Option<HitRecord>;
+}
+
+pub trait Material {
+    fn scatter(&self, r_in: &Ray, rec: &HitRecord, rng: &mut ThreadRng) -> (Vec3, Option<Ray>);
 }

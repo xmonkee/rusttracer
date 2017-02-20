@@ -1,4 +1,4 @@
-use super::super::vec3::{Vec3, Ray};
+use super::super::vec3::{Ray};
 use super::super::Hitable;
 use super::super::HitRecord;
 
