@@ -61,7 +61,7 @@ struct Camera <'a> {
 }
 
 impl <'a> Camera <'a> {
-    fn new<H: Hitable + 'a>(scene: &'a H) -> Camera <'a> {
+    fn new(scene: &'a Hitable) -> Camera <'a> {
         Camera{
             rng: rand::thread_rng(),
             scene: scene,

@@ -2,21 +2,21 @@ use super::super::vec3::{Ray};
 use super::super::HitRecord;
 use super::super::Hitable;
 
-pub struct List<'a, H: Hitable + 'a> {
-    pub list: Vec<&'a H>,
+pub struct List<'a> {
+    pub list: Vec<&'a Hitable>,
 }
 
-impl <'a, H: Hitable> List<'a, H> {
-    pub fn new() -> List<'a, H> {
+impl <'a> List<'a> {
+    pub fn new() -> List<'a> {
         List{list: Vec::new()}
     }
 
-    pub fn add(&mut self, scene: &'a H) {
+    pub fn add(&mut self, scene: &'a Hitable) {
         self.list.push(scene);
     }
 } 
 
-impl <'a, H: Hitable + 'a> Hitable for List<'a, H> {
+impl <'a> Hitable for List<'a> {
     fn hit(&self, tmin: f32, tmax: f32, r: &Ray) -> Option<HitRecord> {
         let mut ret: Option<HitRecord> = None;
         let mut closest_so_far: f32 = tmax;

@@ -10,7 +10,7 @@ pub struct Sphere<'a>{
 }
 
 impl <'a> Sphere<'a>{
-    pub fn new<M: Material + 'static>(center: Vec3, radius: f32, material: &'a M) -> Sphere<'a>{
+    pub fn new<M: Material + 'a>(center: Vec3, radius: f32, material: &'a M) -> Sphere<'a>{
         Sphere {
             center: center,
             radius: radius,
