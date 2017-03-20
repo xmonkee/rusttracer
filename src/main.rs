@@ -82,7 +82,7 @@ impl <'a> Camera <'a> {
     fn color(&mut self, x: u32, y: u32) -> Vec3 {
         let mut c = Vec3::new(0f32, 0f32, 0f32);
 
-        let ns = 10;
+        let ns = 100;
         for _ in 0..ns {
             let ray = &self.ray_from_origin(x, y);
             c = c + self.color1(&ray, 0);
