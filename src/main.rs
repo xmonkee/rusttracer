@@ -5,7 +5,7 @@ extern crate ray;
 extern crate rand;
 use ray::vec3::{Vec3, Ray};
 use ray::scenes::*;
-use ray::materials::{Lambertian, Metal, Dielectric};
+use ray::materials::{Lambertian, Metal};
 use ray::{Hitable};
 use rand::{ThreadRng, Rng};
 use bmp::{Image, Pixel};
@@ -26,7 +26,7 @@ fn main() {
     let material0 = Lambertian::new(Vec3::new(0.8 , 0.3 , 0.3));
     let material1 = Lambertian::new(Vec3::new(0.6 , 0.8 , 0.2));
     let material2 = Metal::new(Vec3::new(0.8, 0.6 , 0.2), 0.3);
-    let material3 = Dielectric::new(1.5);
+    let material3 = Lambertian::new(Vec3::new(0.3 , 0.8 , 0.6));
 
 
     let sphere0 = sphere::Sphere::new(Vec3::new(0.0  , 0.0    , -1.0) , 0.5   , &material0);
